@@ -1,20 +1,65 @@
 @import "tailwindcss";
+@import "./fonts.css";
+@import "./every-layout/index.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark
+  (&: where(.dark, .dark *));
 
 :root {
+  --font-display: "Biotif", "sans-serif";
+  --font-sans: "Biotif", "sans-serif";
+  --font-heading: "Geomanist", "sans-serif";
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --border: oklch(0.923 0.003 48.717);
-}
+  --color-primary: #ff5800;
+  --color-gray-50: oklch(98.42% 0.0034 247.86deg);
+  --color-gray-100: oklch(12% 9.5% 264deg / 5%);
+  --color-gray-200: oklch(12% 9% 264deg / 8%);
+  --color-gray-300: oklch(12% 8.5% 264deg / 17%);
+  --color-gray-400: oklch(12% 8% 264deg / 38%);
+  --color-gray-500: oklch(12% 7.5% 264deg / 50%);
+  --color-gray-600: oklch(12% 7% 264deg / 67%);
+  --color-gray-700: oklch(12% 6% 264deg / 77%);
+  --color-gray-800: oklch(12% 5% 264deg / 85%);
+  --color-gray-900: oklch(12% 5% 264deg / 90%);
+  --color-gray-950: oklch(12% 5% 264deg / 95%);
+  --shadow:
+    0px 2px 3px -1px var(--color-gray-50),
+    0px 1px 0px 0px var(--color-gray-200), 0px 0px 0px 1px var(--color-gray-100);
 
-.dark {
-  --background: oklch(0.147 0.004 49.25);
-  --foreground: oklch(0.985 0.001 106.423);
-  --border: oklch(1 0 0 / 10%);
+  @media (prefers-color-scheme: dark) {
+    --background: oklch(0.147 0.004 49.25);
+    --foreground: oklch(0.985 0.001 106.423);
+    --border: oklch(1 0 0 / 10%);
+    --color-gray-50: oklch(17% 1% 264deg);
+    --color-gray-100: oklch(28% 3% 264deg / 65%);
+    --color-gray-200: oklch(31% 3% 264deg / 80%);
+    --color-gray-300: oklch(35% 3% 264deg / 80%);
+    --color-gray-400: oklch(47% 3.5% 264deg / 80%);
+    --color-gray-500: oklch(64% 4% 264deg / 80%);
+    --color-gray-600: oklch(82% 4% 264deg / 80%);
+    --color-gray-700: oklch(92% 4.5% 264deg / 80%);
+    --color-gray-800: oklch(93% 3.5% 264deg / 85%);
+    --color-gray-900: oklch(95% 2% 264deg / 90%);
+    --color-gray-950: oklch(94% 1.5% 264deg / 95%);
+    --shadow:
+      0px 2px 3px -1px var(--color-gray-50),
+      0px 1px 0px 0px var(--color-gray-200),
+      0px 0px 0px 1px var(--color-gray-100);
+  }
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/*
+This style creates a separate stacking context for your application’s .root element. This way, popups will always appear above the page contents, and any z-index property in your styles won’t interfere with them.
+More here: https://base-ui.com/react/overview/quick-start
+*/
+.root {
+  isolation: isolate;
 }

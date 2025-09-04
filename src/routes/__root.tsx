@@ -6,6 +6,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { Header } from "~/components/icons/Header";
 import globalCss from "~/styles/global.css?url";
 
 export const Route = createRootRoute({
@@ -46,8 +47,11 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
-				{children}
+			<body className="font-sans antialiased">
+				<div className="root">
+					<Header />
+					{children}
+				</div>
 				<Scripts />
 			</body>
 		</html>

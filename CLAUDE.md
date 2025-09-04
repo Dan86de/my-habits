@@ -16,23 +16,30 @@ This is a TanStack Start (React) application with TypeScript, configured with Vi
 ## Architecture
 
 ### Routing
+
 The application uses TanStack Router with file-based routing:
+
 - Routes are defined in `src/routes/` directory
 - `__root.tsx` contains the root layout with HTML document structure
 - `routeTree.gen.ts` is auto-generated (excluded from Biome linting)
 - Router configuration is in `src/router.tsx`
 
 ### Styling
+
 - Global styles in `src/styles/global.css`
 - Tailwind CSS configured via Vite plugin
 - Uses CSS imports with `?url` for stylesheet loading
+- Every Layout CSS primitives available in `src/styles/every-layout/` (box, center, cluster, sidebar, stack, switcher)
+- Utility function `cn()` in `src/lib/util.ts` for merging Tailwind classes with clsx and tailwind-merge
 
 ### TypeScript Configuration
+
 - Strict TypeScript configuration with path aliases (`~/*` maps to `./src/*`)
 - ES modules with bundler resolution
 - Target ES2022 with DOM libraries
 
 ### Code Quality
+
 - Biome handles both linting and formatting
 - Configured for tab indentation and double quotes
 - Auto-sorts Tailwind classes
